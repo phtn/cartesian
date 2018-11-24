@@ -2,6 +2,9 @@ import React from 'react'
 import { Card, Image } from 'semantic-ui-react'
 import Fade from 'react-reveal/Fade'
 import Resp from '../assets/responsive.png'
+
+import Landing from './Landing'
+
 const styles = {
   container: {
     display: 'flex',
@@ -18,6 +21,12 @@ const styles = {
 export default props => {
 
   return(
+    <>
+
+    <Fade bottom>
+      <Landing/>
+    </Fade>
+
     <Fade bottom>
       <div style={styles.container}>
         <Card fluid style={styles.card} >
@@ -28,5 +37,6 @@ export default props => {
         </Card>
       </div>
     </Fade>
+    </>
   )
 }

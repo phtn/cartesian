@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Brand from "./components/Brand";
 import Loading from "./components/Loading";
 import './App.css'
+
 const Homepage = Loadable({
   loader: ()=> import('./components/Hero'),
   loading: ()=> <Loading/>
