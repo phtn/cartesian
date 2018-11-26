@@ -1,7 +1,6 @@
 import React from 'react'
 import { Header, Grid, Image, Divider } from 'semantic-ui-react'
 import Lightning from '../assets/lightning.svg'
-import ReactLogo from '../assets/react.svg'
 
 const styles = {
   container: {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Image } from 'semantic-ui-react'
+import { Image } from 'semantic-ui-react'
 import Loading from '../assets/loading.svg'
 const styles = {
   container: {

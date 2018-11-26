@@ -3,18 +3,8 @@ import { NavLink } from "react-router-dom";
 import { Menu, Responsive } from "semantic-ui-react";
 import Palace from '../assets/palace.svg'
 import MenuIcon from '../assets/menu.svg'
-import { timer } from "rxjs";
 
-function reducer(state, action) {
-  switch (action) {
-    case "home":
-      return { home: true, web: false };
-    case "web":
-      return { home: false, web: true };
-    default:
-      return state;
-  }
-}
+
 
 const styles = {
   container: {
@@ -25,7 +15,6 @@ const styles = {
     fontFamily: "Abel, sans-serif",
     fontWeight: "bolder",
     letterSpacing: 2,
-    // color: "white"
   },
   links: {
     color: "#fff"
@@ -35,6 +24,17 @@ const styles = {
 
 
 const MenuBar =  () => {
+
+  function reducer(state, action) {
+    switch (action) {
+      case "home":
+        return { home: true, web: false };
+      case "web":
+        return { home: false, web: true };
+      default:
+        return state;
+    }
+  }
   const [state, dispatch] = useReducer(reducer, { home: true, web: false });
 
   const menuItems = [

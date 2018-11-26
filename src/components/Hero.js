@@ -18,7 +18,7 @@ const styles = {
     border: '1px solid #eee !important'
   }
 }
-export default props => {
+const Hero = () => {
 
   return(
     <>
@@ -40,3 +40,4 @@ export default props => {
     </>
   )
 }
+export default Hero
