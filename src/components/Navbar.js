@@ -17,7 +17,7 @@ const styles = {
     letterSpacing: 2,
   },
   links: {
-    color: "#fff"
+    color: "#444 !important"
   }
 };
 

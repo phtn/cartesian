@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Responsive } from 'semantic-ui-react'
-// import Fade from 'react-reveal/Fade'
 
 const styles = {
   container: {
@@ -11,7 +10,7 @@ const styles = {
     fontFamily: 'Cinzel, serif',
     fontSize: 28,
     fontWeight: 400,
-    // letterSpacing: 2,
+    zIndex: 1,
     color: 'rgb(64, 180, 208)',
     lineHeight: '100px',
   },
