@@ -6,23 +6,22 @@ import Fade from 'react-reveal/Fade'
 
 const styles = {
   container: {
-    textAlign: 'center'
+    textAlign: 'center',
   },
   big: {
     fontFamily: 'Roboto, sans-serif',
     fontWeight: 100,
-    fontSize: 84,
+    fontSize: 56,
     letterSpacing: 5,
-    color: '#fff',
-    lineHeight: '60px',
-    zIndex: 1
+    color: '#eee',
+    lineHeight: '50px',
   },
   medium: {
     fontFamily: 'Open Sans, sans-serif',
     fontWeight: 300,
-    fontSize: 44,
+    fontSize: 30,
     letterSpacing: 2,
-    color: 'rgb(64, 180, 208)',
+    color: 'rgb(128, 224, 208)',
     lineHeight: '60px',
     textTransform: 'uppercase',
     backgroundColor: 'rgba(0,0,0,0.5)',
@@ -31,17 +30,18 @@ const styles = {
     width: '100%'
   },
   small: {
-    fontFamily: 'IBM Plex Sans, sans-serif',
-    fontWeight: 700,
-    fontSize: 34,
-    letterSpacing: 3,
-    color: '#444',
+    fontFamily: 'Rajdhani, sans-serif',
+    // fontWeight: 300,
+    fontSize: 30,
+    letterSpacing: 1,
+    color: '#eee',
     lineHeight: '34px',
     display: 'inline-block',
     marginBottom: 10,
   },
   image: {
     display: 'inline-block',
+    height: 28,
     marginRight: 10
   },
   divider: {
@@ -52,12 +52,13 @@ const styles = {
     border: '1px solid red'
   },
   video: {
-    height: '100%'
+    // height: '100%',
+    // marginTop: '-50px'
   },
   content: {
     position: 'absolute',
-    top: 300,
-    left: window.innerWidth / 3
+    top: 150,
+    width: '100%',
   }
 }
 
@@ -71,10 +72,10 @@ const Vid = () => {
   )
 }
 
-const arr = [1,2,3]
+const arr = ['Lightning Fast','Robust Code','Secured Database']
 
 function looper(array){
-  array.forEach((value)=> setTimeout(t=> {console.log(value)}, value * 3000))
+  array.forEach((value)=> setTimeout(t=> {console.log(array.indexOf(value))}, 1000))
 }
 
 const Landing = () => {

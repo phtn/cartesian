@@ -17,11 +17,12 @@ export default App => {
   return (
     <Router>
       <>
-        <Brand/>
+        {/* <Brand/> */}
         <Navbar />
         <Switch>
           <Route exact path="/" render={() => <Homepage/>}/>
-          <Route path="/webapps" render={() => <div>Webapps</div>} />
+          <Route path="/blog" render={() => <div>Blog Page</div>} />
+          <Route path="/about" render={() => <div>About Page</div>} />
         </Switch>
       </>
     </Router>
