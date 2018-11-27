@@ -23,11 +23,9 @@ const Hero = () => {
   return(
     <>
 
-    <Fade bottom>
-      <Landing/>
-    </Fade>
+    <Landing/>
 
-    <Fade bottom>
+    <Fade>
       <div style={styles.container}>
         <Card fluid style={styles.card} >
           <Image src={Resp} />
