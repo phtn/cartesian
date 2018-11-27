@@ -9,7 +9,7 @@ import './App.css'
 import './animate.css'
 
 const Homepage = Loadable({
-  loader: ()=> import('./components/Hero'),
+  loader: ()=> import('./components/Homepage'),
   loading: ()=> <Loading/>
 })
 

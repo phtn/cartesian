@@ -26,7 +26,7 @@ const styles = {
     lineHeight: '60px',
     textTransform: 'uppercase',
     backgroundColor: 'rgba(0,0,0,0.5)',
-    padding: 10,
+    padding: 30,
     marginBottom: 30,
     width: '100%'
   },
@@ -50,6 +50,14 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     border: '1px solid red'
+  },
+  video: {
+    height: '100%'
+  },
+  content: {
+    position: 'absolute',
+    top: 300,
+    left: window.innerWidth / 3
   }
 }
 
@@ -57,8 +65,8 @@ const styles = {
 
 const Vid = () => {
   return (
-    <div style={{height: 75}}>
-      <video src={Workit} autoPlay muted loop></video>
+    <div>
+      <video style={styles.video} src={Workit} autoPlay muted loop ></video>
     </div>
   )
 }
@@ -79,7 +87,7 @@ const Landing = () => {
 
     
     <Fade bottom cascade>
-      <div>
+      <div style={styles.content}>
       <Grid columns='equal'>
         <Grid.Row textAlign='center' columns={3}>
           <Grid.Column >
