@@ -17,7 +17,9 @@ const styles = {
   hr: {
     maxWidth: 100,
     borderBottom: 'none',
-    borderTopColor: 'rgb(238,238,238)'
+    borderColor: '#ffd454',
+    height: '1px'
+
   }
 };
 
@@ -26,7 +28,7 @@ const ContentTwo = props => {
     <div style={styles.container}>
       <Fade bottom>
         <div>
-          <Grid divided="equal">
+          <Grid stackable divided>
             <Grid.Row columns={2} textAlign="center">
               <Grid.Column>
                 <Image src={props.image} height={300} style={{margin: '0 auto'}}/>

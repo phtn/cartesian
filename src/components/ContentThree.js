@@ -8,7 +8,7 @@ const styles = {
     // top: 700,
     width: "100%",
     backgroundColor: "#eee",
-    padding: 100
+    padding: 75
   },
   title: {
     fontFamily: "Roboto, sans-serif",
@@ -19,7 +19,8 @@ const styles = {
   hr: {
     maxWidth: 100,
     borderBottom: 'none',
-    borderTopColor: 'rgb(238,238,238)'
+    borderColor: '#ffd454',
+    height: '1px'
   }
 };
 
@@ -28,7 +29,7 @@ const ContentThree = props => {
     <div style={styles.container}>
       <Fade bottom>
         <div>
-          <Grid divided="equal">
+          <Grid stackable divided>
             <Grid.Row columns={2} textAlign="center">
               <Grid.Column>
                 <h2 style={styles.title}>{props.title}</h2>

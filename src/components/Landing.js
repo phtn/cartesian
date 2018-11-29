@@ -1,128 +1,111 @@
-import React from 'react'
-import { Grid, Divider } from 'semantic-ui-react'
-import Lightning from '../assets/lightning.svg'
-import Workit from '../assets/workit.mp4'
-import Fade from 'react-reveal/Fade'
+import React, { useState, useEffect } from "react";
+import { Grid, Responsive, Card } from "semantic-ui-react";
+import Particles from "react-particles-js";
+import Laptop from "../assets/macbook.svg";
 
 const styles = {
   container: {
-    textAlign: 'center',
+    width: "100%",
+    backgroundColor: "#333",
+    height: "100%",
+    // border: "3px solid papayawhip"
   },
-  big: {
-    fontFamily: 'Roboto, sans-serif',
-    fontWeight: 100,
-    fontSize: 56,
-    letterSpacing: 5,
-    color: '#eee',
-    lineHeight: '50px',
-  },
-  medium: {
-    fontFamily: 'Open Sans, sans-serif',
+  title: {
+    fontFamily: "Roboto, sans-serif",
     fontWeight: 300,
-    fontSize: 30,
-    letterSpacing: 2,
-    color: 'rgb(128, 224, 208)',
-    lineHeight: '60px',
-    textTransform: 'uppercase',
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    padding: 30,
-    marginBottom: 30,
-    width: '100%'
+    fontSize: 28,
+    color: "#eee"
   },
-  small: {
-    fontFamily: 'Rajdhani, sans-serif',
-    // fontWeight: 300,
-    fontSize: 30,
-    letterSpacing: 1,
-    color: '#eee',
-    lineHeight: '34px',
-    display: 'inline-block',
-    marginBottom: 10,
-  },
-  image: {
-    display: 'inline-block',
-    height: 28,
-    marginRight: 10
-  },
-  divider: {
-    maxWidth: 100,
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    border: '1px solid red'
-  },
-  video: {
-    // height: '100%',
-    // marginTop: '-50px'
+ 
+  description: {
+    fontFamily: "Roboto, sans-serif",
+    fontSize: "1.3em",
+    width: "100%",
+    margin: "30px auto",
+    padding: "0px 100px"
   },
   content: {
-    position: 'absolute',
-    top: 150,
+    position: "absolute",
+    top: 100,
     width: '100%',
+    // border: "2px solid tomato",
+    maxHeight: 'inherit ',
+    zIndex: 2
+  },
+  card: {
+    width: "100%",
+    height: "100%",
+    // border: "2px solid blue",
+  },
+  
+  image: {
+    height: 300,
   }
-}
+};
 
-
-
-const Vid = () => {
-  return (
-    <div>
-      <video style={styles.video} src={Workit} autoPlay muted loop ></video>
-    </div>
-  )
-}
-
-const arr = ['Lightning Fast','Robust Code','Secured Database']
-
-function looper(array){
-  array.forEach((value)=> setTimeout(t=> {console.log(array.indexOf(value))}, 1000))
-}
-
-const Landing = () => {
-  looper(arr)
-
+const Landing = props => {
   return (
     <div style={styles.container}>
-
-      <Vid/>
-
-    
-    <Fade bottom cascade>
+      <Particles
+        params={{
+          particles: {
+            number: {
+              value: 100,
+              density: {
+                enable: true,
+                value_area: 1500
+              }
+            },
+            color: {
+              value: "#066b98"
+            },
+            line_linked: {
+              enable: true,
+              distance: 200,
+              opacity: 0.1
+            },
+            move: {
+              direction: "right",
+              speed: 0.01
+            },
+            size: {
+              value: 1
+            },
+            opacity: {
+              anim: {
+                enable: true,
+                speed: 1,
+                opacity_min: 0.05
+              }
+            }
+          },
+          interactivity: {
+            events: {
+              onhover: {
+                enable: true,
+                mode: "bubble"
+              }
+            },
+            modes: {
+              bubble: {
+                size: 7,
+                distance: 200
+              }
+            }
+          },
+          retina_detect: true
+        }}
+      >
       <div style={styles.content}>
-      <Grid columns='equal'>
-        <Grid.Row textAlign='center' columns={3}>
-          <Grid.Column >
-            <h1 style={styles.big}>We Build</h1>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-
-      <Grid columns='equal'>
-        <Grid.Row textAlign='center' columns={3}>
-          <Grid.Column >
-            <img src={Lightning} height={34} alt='fast' style={styles.image} className='animated slideInDown'/>
-            <h1 style={styles.small} className='animated slideInUp'>Lightning Fast</h1>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-
-      <Grid columns='equal'>
-        <Grid.Row textAlign='center' columns={3}>
-          <Grid.Column >
-            <h1 style={styles.medium}>Business Applications</h1>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-
-
+        <Responsive minWidth={767}>
+          <div style={styles.card} className="animated fadeInRight">
+            <img src={Laptop} style={styles.image} alt="" />
+          </div>
+        </Responsive>
       </div>
-    </Fade>
-
-    
-    
-      
-     
+      </Particles>
     </div>
-  )
-}
-export default Landing
+  );
+};
+
+export default Landing;

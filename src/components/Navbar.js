@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import { NavLink } from "react-router-dom";
-import { Menu, Responsive } from "semantic-ui-react";
+import { Image, Menu, Responsive } from "semantic-ui-react";
 import Palace from '../assets/palace.svg'
 import MenuIcon from '../assets/menu.svg'
 
@@ -8,7 +8,10 @@ import MenuIcon from '../assets/menu.svg'
 
 const styles = {
   container: {
-    backgroundColor: "#066b98"
+    backgroundColor: "#066b98",
+    height: '100%',
+    paddingLeft: 100,
+    paddingRight: 100
   },
   items: {
     // textTransform: "uppercase",
@@ -18,7 +21,7 @@ const styles = {
   },
   brand: {
     fontFamily: 'Rajdhani, sans-serif',
-    fontSize: '1.6em',
+    fontSize: '1.8em',
     fontWeight: 300,
     color: '#ccc',
     textTransform: 'uppercase'
@@ -26,11 +29,16 @@ const styles = {
   title: {
     fontFamily: 'Rajdhani, sans-serif',
     fontSize: '1.3em',
-    color: 'rgb(51, 51, 51)',
+    color: '#ccc',
   },
 
   links: {
-    color: "#444 !important"
+    color: "#ccc !important"
+  },
+  logo: {
+    display: 'inline-block',
+    height: 20,
+    marginRight: 10
   }
 };
 
@@ -54,16 +62,14 @@ const MenuBar =  () => {
     {
       name: 'blog',
       active: state.blog,
-      to: '/blog',
+      to: '/Blog',
       onClick: () => dispatch('blog'),
-      src: MenuIcon,
     },
     {
-      name: 'about',
+      name: 'company',
       active: state.about,
-      to: '/about',
-      onClick: () => dispatch('about'),
-      src: MenuIcon,
+      to: '/OurCompany',
+      onClick: () => dispatch('company'),
     },
     
   ]
@@ -72,7 +78,7 @@ const MenuBar =  () => {
     <div style={styles.container}>
 
       <Responsive as={Menu} minWidth={768} pointing secondary>
-        
+        <Menu.Item><img src={Palace} alt='logo'/></Menu.Item>
         <Menu.Item style={styles.items} position='left' active={false}>
           <NavLink style={styles.links} to='/'>
             <h2 style={styles.brand} className='animated fadeIn'>
