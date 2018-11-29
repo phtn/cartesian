@@ -14,7 +14,6 @@ const styles = {
     paddingRight: 100
   },
   items: {
-    // textTransform: "uppercase",
     fontFamily: "Open Sans, sans-serif",
     fontWeight: 300,
     letterSpacing: 1,
@@ -42,21 +41,21 @@ const styles = {
   }
 };
 
-
+const initialState = { company: false, blog: false }
 
 const MenuBar =  () => {
 
   function reducer(state, action) {
     switch (action) {
-      case "about":
-        return { about: true, blog: false };
+      case "company":
+        return { company: true, blog: false };
       case "blog":
-        return { about: false, blog: true };
+        return { company: false, blog: true };
       default:
-        return state;
+        return initialState;
     }
   }
-  const [state, dispatch] = useReducer(reducer, { about: false, blog: false });
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const menuItems = [
     {
@@ -67,7 +66,7 @@ const MenuBar =  () => {
     },
     {
       name: 'company',
-      active: state.about,
+      active: state.company,
       to: '/OurCompany',
       onClick: () => dispatch('company'),
     },
@@ -81,7 +80,7 @@ const MenuBar =  () => {
         <Menu.Item><img src={Palace} alt='logo'/></Menu.Item>
         <Menu.Item style={styles.items} position='left' active={false}>
           <NavLink style={styles.links} to='/'>
-            <h2 style={styles.brand} className='animated fadeIn'>
+            <h2 style={styles.brand} className='animated fadeIn' onClick={()=> dispatch(null)}>
               Keystone Media
             </h2>
           </NavLink>
