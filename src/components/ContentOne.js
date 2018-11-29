@@ -5,7 +5,7 @@ import { Grid, Image, Responsive } from "semantic-ui-react";
 const styles = {
   container: {
     width: "100%",
-    backgroundColor: "#eee",
+    backgroundColor: "#fff",
     padding: 75
   },
   title: {
