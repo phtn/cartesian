@@ -25,7 +25,7 @@ export default App => {
         <Switch>
           
           <Route exact path="/" render={() => <Homepage />} />
-          <Route path="/Blog" render={() => <Blog />} />
+          <Route path="/Blog" component={Blog} />
           <Route path="/OurCompany" render={() => <div>Company Page</div>} />
 
           {/* REDIRECT */}

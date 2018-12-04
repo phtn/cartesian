@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Fade from "react-reveal/Fade";
-import { Grid, Image, Responsive } from "semantic-ui-react";
+import { Grid, Image } from "semantic-ui-react";
 
 const styles = {
   container: {
     width: "100%",
     backgroundColor: "#fff",
-    padding: 75
+    paddingTop: 75
   },
   title: {
     fontFamily: "Roboto, sans-serif",
@@ -25,11 +25,29 @@ const styles = {
     fontSize: '1.3em',
     width: '100%',
     margin: '30px auto',
-    padding: '0px 50px'
   }
 };
 
 const ContentOne = props => {
+  const { width } = props
+  const [padding, setPadding] = useState(100)
+  
+  
+  
+  useEffect(()=> {
+    const handlePadding = (pad) => setPadding(pad)  
+
+    if (width < 767){
+      handlePadding(15)
+      console.log('test')
+    } else {
+      handlePadding(100)
+    }
+    
+  }, [width])
+
+  
+
   return (
     <div style={styles.container}>
       <Fade bottom>
@@ -39,7 +57,7 @@ const ContentOne = props => {
               <Grid.Column>
                 <h2 style={styles.title}>{props.title}</h2>
                 <hr style={styles.hr} />
-                <p style={styles.description}> <strong>React</strong> is the most advanced UI library used by thousands of companies because of its simplicity and component focused approach on applications putting reusability at top priority therefore making apps lightning fast.</p>
+                <p style={Object.assign({}, styles.description, {paddingRight: padding, paddingLeft: padding})}> <strong>React</strong> is the most advanced UI library used by thousands of companies because of its simplicity and component focused approach on applications putting reusability at top priority therefore making apps lightning fast.</p>
               </Grid.Column>
               <Grid.Column>
                   <Image

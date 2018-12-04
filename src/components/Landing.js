@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { Grid, Responsive, Card } from "semantic-ui-react";
+import React from "react";
+import { Responsive } from "semantic-ui-react";
 import Particles from "react-particles-js";
-import Laptop from "../assets/macbook.svg";
 
 const styles = {
   container: {
     width: "100%",
     backgroundColor: "#333",
-    height: "100%",
-    // border: "3px solid papayawhip"
+    height: "100%"
   },
   title: {
     fontFamily: "Roboto, sans-serif",
@@ -16,7 +14,6 @@ const styles = {
     fontSize: 28,
     color: "#eee"
   },
- 
   description: {
     fontFamily: "Roboto, sans-serif",
     fontSize: "1.3em",
@@ -27,30 +24,67 @@ const styles = {
   content: {
     position: "absolute",
     top: 100,
-    width: '100%',
-    // border: "2px solid tomato",
-    maxHeight: 'inherit ',
+    width: "100%",
+    maxHeight: "inherit ",
     zIndex: 2
   },
   card: {
     width: "100%",
-    height: "100%",
-    // border: "2px solid blue",
+    height: "100%"
   },
-  
   image: {
-    height: 300,
+    height: 300
+  },
+  hero: {
+    position: "absolute",
+    top: 300,
+    color: "#066b98",
+    fontSize: 42,
+    lineHeight: "40px"
+  },
+  subhero: {
+    textTransform: "uppercase",
+    fontWeight: 300,
+    fontSize: 28,
+    fontFamily: "Rajdhani, sans-serif",
+    marginLeft: 10,
+    color: "#ccc",
+    lineHeight: "60px"
+  },
+  hr: {
+    width: 420,
+    border: "none",
+    height: "1px",
+    backgroundColor: "#ffd454",
+    position: "absolute",
+    top: 350
   }
 };
 
 const Landing = props => {
+  const { width } = props;
   return (
     <div style={styles.container}>
+      <Responsive minWidth={767}>
+        <h1
+          style={Object.assign({}, styles.hero, { left: width / 8 })}
+          className="animated fadeInDown"
+        >
+          We Build{" "}
+          <span style={styles.subhero} className="animated fadeInRight">
+            business applications
+          </span>
+        </h1>
+        <hr
+          style={Object.assign({}, styles.hr, { left: width / 6.7 })}
+          className="animated slideInLeft"
+        />
+      </Responsive>
       <Particles
         params={{
           particles: {
             number: {
-              value: 100,
+              value: 300,
               density: {
                 enable: true,
                 value_area: 1500
@@ -66,7 +100,7 @@ const Landing = props => {
             },
             move: {
               direction: "right",
-              speed: 0.01
+              speed: 0.09
             },
             size: {
               value: 1
@@ -89,21 +123,13 @@ const Landing = props => {
             modes: {
               bubble: {
                 size: 7,
-                distance: 200
+                distance: 100
               }
             }
           },
           retina_detect: true
         }}
-      >
-      <div style={styles.content}>
-        <Responsive minWidth={767}>
-          <div style={styles.card} className="animated fadeInRight">
-            <img src={Laptop} style={styles.image} alt="" />
-          </div>
-        </Responsive>
-      </div>
-      </Particles>
+      />
     </div>
   );
 };
