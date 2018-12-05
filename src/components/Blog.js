@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import Switch from "react-router-dom/Switch";
+import { BrowserRouter as Router, Route, NavLink, Switch } from "react-router-dom";
 import { Card } from 'semantic-ui-react'
+import BlogContent from './BlogContent'
 
 const blogs = [
   {
@@ -34,13 +34,7 @@ const styles = {
     
     marginTop: 30
   },
-  blogContentContainer: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: 500,
-    width: "100%"
-  },
+ 
   card: {
     marginBottom: 20
   },
@@ -78,16 +72,7 @@ const Blogs = props => (
   </div>
 );
 
-const BlogContent = props => {
-  const {idx} = props;
-  const { id, title } = blogs[idx]
-  return (
-    <div style={styles.container}>
-      <NavLink to="/Blog">back</NavLink>
-      <h1>{ id } | { title } </h1>
-    </div>
-  );
-};
+
 
 const BlogRoutes = () => {
 
@@ -112,7 +97,7 @@ const BlogRoutes = () => {
       <>
         <Switch>
           <Route exact path="/Blog" render={()=> <Blogs pad={mobilePad}/>} />
-          <Route exact path="/Blog/:id" render={() => <BlogContent idx={ getBlogIndex(window.localStorage.getItem('current'))}/>} />
+          <Route exact path="/Blog/:id" render={() => <BlogContent blogs={blogs} idx={ getBlogIndex(window.localStorage.getItem('current'))}/>} />
         </Switch>
       </>
     </Router>

@@ -6,6 +6,7 @@
     "react": "^16.7.0-alpha",
     "react-dom": "^16.7.0-alpha",
     "react-loadable": "^5.5.0",
+    "react-markdown": "^4.0.4",
     "react-move": "^2.8.0",
     "react-particles-js": "^2.4.2",
     "react-reveal": "^1.2.2",
