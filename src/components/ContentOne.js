@@ -6,7 +6,8 @@ const styles = {
   container: {
     width: "100%",
     backgroundColor: "#fff",
-    paddingTop: 75
+    paddingTop: 75,
+    paddingBottom: 75,
   },
   title: {
     fontFamily: "Roboto, sans-serif",

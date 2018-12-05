@@ -44,8 +44,8 @@ const styles = {
 
 const initialState = { company: false, blog: false }
 
-const MenuBar =  () => {
-
+const Navbar = props => {
+  const { brand } = props
   function reducer(state, action) {
     switch (action) {
       case "company":
@@ -83,7 +83,7 @@ const MenuBar =  () => {
         <Menu.Item style={styles.items} position='left' active={false}>
           <NavLink to='/'>
             <h2 style={styles.brand} className='animated fadeIn' onClick={()=> dispatch(null)}>
-              Keystone Media
+              { brand }
             </h2>
           </NavLink>
         </Menu.Item>
@@ -121,4 +121,4 @@ const MenuBar =  () => {
   );
 };
 
-export default MenuBar
+export default Navbar

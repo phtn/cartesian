@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import Switch from "react-router-dom/Switch";
+import { Card } from 'semantic-ui-react'
 
 const blogs = [
   {
@@ -28,28 +29,53 @@ const blogs = [
 ];
 
 const styles = {
-  container: {
+  blogsContainer: {
+    
+    
+    marginTop: 30
+  },
+  blogContentContainer: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     height: 500,
     width: "100%"
+  },
+  card: {
+    marginBottom: 20
+  },
+  cardHeader: {
+    fontFamily: 'Rajdhani, sans-serif'
   }
 };
 
-const Blogs = () => (
-  <ul>
-    {blogs.map(item => (
-      <li key={item.id}>
-        <NavLink
-          to={`/Blog/${item.title}`}
-          onClick={() => window.localStorage.setItem('current', blogs.indexOf(item))}
-        >
-          {item.title}
-        </NavLink>
-      </li>
-    ))}
-  </ul>
+const Blogs = props => (
+  <div style={Object.assign({}, styles.blogsContainer, { paddingLeft: props.pad, paddingRight: props.pad })}>
+
+    <Card.Group itemsPerRow={1}>
+      {blogs.map(item => (
+        <Card style={styles.card} key={item.id}>
+          {/* <Image></Image> */}
+          <Card.Content>
+            <Card.Header style={styles.cardHeader}>
+              <NavLink
+                to={`/Blog/${item.title}`}
+                onClick={() => window.localStorage.setItem('current', blogs.indexOf(item))}
+              >
+                {item.title}
+              </NavLink>
+            </Card.Header>
+            <Card.Meta>{item.description}</Card.Meta>
+          </Card.Content>
+          <Card.Content extra>
+            {item.id} | {props.pad}
+          </Card.Content>
+        </Card>
+        
+      ))}
+    </Card.Group>
+
+  </div>
 );
 
 const BlogContent = props => {
@@ -64,13 +90,28 @@ const BlogContent = props => {
 };
 
 const BlogRoutes = () => {
-  // console.log(typeof(window.localStorage.getItem('current')))
+
+  const [ width, setWidth ] = useState(window.innerWidth)
+  const [ mobilePad, setMobilePad ] = useState(100)
+
+  useEffect(()=> {
+    const handleWidth = () => setWidth(window.innerWidth)
+    const handlePad = (pad) => setMobilePad(pad)
+    window.addEventListener('resize', handleWidth)
+    if ( width < 767){
+      handlePad(20)
+    } else {
+      handlePad(100)
+    }
+    return ()=> window.removeEventListener('resize', handleWidth)
+  }, [width, mobilePad])
+
   const getBlogIndex = (index) => parseInt(index)
   return (
     <Router>
       <>
         <Switch>
-          <Route exact path="/Blog" component={Blogs} />
+          <Route exact path="/Blog" render={()=> <Blogs pad={mobilePad}/>} />
           <Route exact path="/Blog/:id" render={() => <BlogContent idx={ getBlogIndex(window.localStorage.getItem('current'))}/>} />
         </Switch>
       </>

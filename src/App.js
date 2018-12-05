@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Loadable from "react-loadable";
 import Navbar from "./components/Navbar";
@@ -18,10 +18,14 @@ const Blog = Loadable({
 });
 
 export default App => {
+  const [brand] = useState('Cartesian')
+  useEffect(()=> {
+    document.title = brand
+  }, [brand])
   return (
     <Router>
       <>
-        <Navbar />
+        <Navbar brand={brand}/>
         <Switch>
           
           <Route exact path="/" render={() => <Homepage />} />
@@ -29,7 +33,7 @@ export default App => {
           <Route path="/OurCompany" render={() => <div>Company Page</div>} />
 
           {/* REDIRECT */}
-          <Route component={() => <Homepage/>}/> 
+          <Route component={() => <Homepage/>}/>
 
         </Switch>
       </>
