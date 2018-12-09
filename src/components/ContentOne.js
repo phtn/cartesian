@@ -40,7 +40,7 @@ const ContentOne = props => {
 
     if (width < 767){
       handlePadding(15)
-      console.log('test')
+      // console.log('test')
     } else {
       handlePadding(100)
     }

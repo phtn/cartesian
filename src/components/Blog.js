@@ -30,8 +30,7 @@ const blogs = [
 
 const styles = {
   blogsContainer: {
-    
-    
+    // backgroundColor: '#eee',
     marginTop: 30
   },
  
@@ -48,7 +47,7 @@ const Blogs = props => (
 
     <Card.Group itemsPerRow={1}>
       {blogs.map(item => (
-        <Card style={styles.card} key={item.id}>
+        <Card style={styles.card} key={item.id} raised>
           {/* <Image></Image> */}
           <Card.Content>
             <Card.Header style={styles.cardHeader}>
@@ -84,7 +83,7 @@ const BlogRoutes = () => {
     const handlePad = (pad) => setMobilePad(pad)
     window.addEventListener('resize', handleWidth)
     if ( width < 767){
-      handlePad(20)
+      handlePad(25)
     } else {
       handlePad(100)
     }
@@ -97,7 +96,7 @@ const BlogRoutes = () => {
       <>
         <Switch>
           <Route exact path="/Blog" render={()=> <Blogs pad={mobilePad}/>} />
-          <Route exact path="/Blog/:id" render={() => <BlogContent blogs={blogs} idx={ getBlogIndex(window.localStorage.getItem('current'))}/>} />
+          <Route exact path="/Blog/:id" render={() => <BlogContent blogs={blogs} pad={mobilePad} idx={ getBlogIndex(window.localStorage.getItem('current'))}/>} />
         </Switch>
       </>
     </Router>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import ReactLogo from '../assets/react2.svg'
 import ReduxLogo from '../assets/redux.svg'
 import FirebaseLogo from '../assets/firebase.svg'
@@ -8,15 +8,8 @@ import ContentOne from './ContentOne'
 import ContentTwo from './ContentTwo';
 import ContentThree from './ContentThree';
 
-const Homepage = () => {
-  const [width, setWidth] = useState(window.innerWidth)
-
-  useEffect(()=> {
-    const handleWidth = () => setWidth(window.innerWidth)
-    window.addEventListener('resize', handleWidth)
-
-    return ()=> window.removeEventListener('resize', handleWidth)
-  }, [width])
+const Homepage = props => {
+  const { width } = props
 
   return(
     <>

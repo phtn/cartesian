@@ -2,7 +2,6 @@ import React, { useReducer } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, Responsive } from "semantic-ui-react";
 import Palace from '../assets/palace.svg'
-import MenuIcon from '../assets/menu.svg'
 
 const styles = {
   container: {
@@ -110,11 +109,17 @@ const Navbar = props => {
             <img src={Palace} width={25} alt='palace'/>
           </NavLink>
         </Menu.Item>
-        <Menu.Item position="right" style={styles.items} active={state.web}>
-          <NavLink style={styles.links} to="/web" onClick={() => dispatch("web")}>
-            <img src={MenuIcon} width={25} alt='MenuIcon'/>
-          </NavLink>
-        </Menu.Item>
+        <Menu.Menu position='right'>
+          {menuItems.map(item => (
+            <Menu.Item key={item.name} style={styles.items} active={item.active}>
+              <NavLink to={item.to} onClick={item.onClick}>
+                <h1 style={styles.title} className='animated fadeIn'>
+                  {item.name}
+                </h1>
+              </NavLink>
+            </Menu.Item>
+          ))}
+        </Menu.Menu>
       </Responsive>
     </div>
     </>

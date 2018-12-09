@@ -58,10 +58,40 @@ const styles = {
     backgroundColor: "#ffd454",
     position: "absolute",
     top: 350
+  },
+  mobileHero: {
+    position: 'absolute',
+    top: 100,
+    left: '0%',
+    right: '0%',
+    margin: '0 auto',
+    textAlign: 'center',
+    fontFamily: "Rajdhani, sans-serif",
+    fontWeight: 300,
+    color: '#eee',
+    textTransform: 'uppercase',
+    letterSpacing: 2
+  },
+  subMobileHero: {
+    position: 'absolute',
+    top: 140,
+    left: '0%',
+    right: '0%',
+    margin: '0 auto',
+    textAlign: 'center',
+    fontFamily: "Roboto, sans-serif",
+    fontWeight: 100,
+    // fontSize:
+    color: '#ffd454',
+    textTransform: 'uppercase',
+    letterSpacing: 2
   }
-};
+}
 
 const Landing = props => {
+  // const items = ['1','2','3','4','5']
+
+ 
   const { width } = props;
   return (
     <div style={styles.container}>
@@ -72,7 +102,7 @@ const Landing = props => {
         >
           We Build{" "}
           <span style={styles.subhero} className="animated fadeInRight">
-            business applications
+            business applications 
           </span>
         </h1>
         <hr
@@ -80,6 +110,17 @@ const Landing = props => {
           className="animated slideInLeft"
         />
       </Responsive>
+
+      <Responsive maxWidth={766}>
+        <h1
+          style={styles.mobileHero}
+          className="animated fadeInDown"
+        >
+          Cartesian
+        </h1>
+        <h3 style={styles.subMobileHero}>Building Business Applications</h3>
+      </Responsive>
+
       <Particles
         params={{
           particles: {
@@ -94,7 +135,7 @@ const Landing = props => {
               value: "#066b98"
             },
             line_linked: {
-              enable: true,
+              enable: false,
               distance: 200,
               opacity: 0.1
             },
