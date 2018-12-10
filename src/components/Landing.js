@@ -8,19 +8,6 @@ const styles = {
     backgroundColor: "#333",
     height: "100%"
   },
-  title: {
-    fontFamily: "Roboto, sans-serif",
-    fontWeight: 300,
-    fontSize: 28,
-    color: "#eee"
-  },
-  description: {
-    fontFamily: "Roboto, sans-serif",
-    fontSize: "1.3em",
-    width: "100%",
-    margin: "30px auto",
-    padding: "0px 100px"
-  },
   content: {
     position: "absolute",
     top: 100,
@@ -28,97 +15,100 @@ const styles = {
     maxHeight: "inherit ",
     zIndex: 2
   },
-  card: {
-    width: "100%",
-    height: "100%"
-  },
-  image: {
-    height: 300
-  },
+
   hero: {
     position: "absolute",
-    top: 300,
-    color: "#066b98",
-    fontSize: 42,
-    lineHeight: "40px"
-  },
-  subhero: {
-    textTransform: "uppercase",
-    fontWeight: 300,
-    fontSize: 28,
+    top: 210,
+    left: "0%",
+    right: "0%",
+    margin: "0 auto",
+    textAlign: "center",
     fontFamily: "Rajdhani, sans-serif",
-    marginLeft: 10,
-    color: "#ccc",
-    lineHeight: "60px"
+    fontWeight: 300,
+    fontSize: 40,
+    color: "#eee",
+    textTransform: "uppercase",
+    letterSpacing: 3
+  },
+  subHero: {
+    position: "absolute",
+    top: 260,
+    left: "0%",
+    right: "0%",
+    margin: "0 auto",
+    textAlign: "center",
+    fontFamily: "Roboto, sans-serif",
+    fontWeight: 100,
+    color: "#ffd454",
+    textTransform: "uppercase",
+    letterSpacing: 2
   },
   hr: {
     width: 420,
     border: "none",
     height: "1px",
-    backgroundColor: "#ffd454",
+    backgroundColor: "#066b98",
     position: "absolute",
-    top: 350
+    top: 320,
+    left: "0%",
+    right: "0%",
+    margin: "0 auto",
   },
   mobileHero: {
-    position: 'absolute',
-    top: 100,
-    left: '0%',
-    right: '0%',
-    margin: '0 auto',
-    textAlign: 'center',
+    position: "absolute",
+    top: 110,
+    left: "0%",
+    right: "0%",
+    margin: "0 auto",
+    textAlign: "center",
     fontFamily: "Rajdhani, sans-serif",
     fontWeight: 300,
-    color: '#eee',
-    textTransform: 'uppercase',
-    letterSpacing: 2
+    fontSize: 40,
+    color: "#eee",
+    textTransform: "uppercase",
+    letterSpacing: 3
   },
   subMobileHero: {
-    position: 'absolute',
-    top: 140,
-    left: '0%',
-    right: '0%',
-    margin: '0 auto',
-    textAlign: 'center',
+    position: "absolute",
+    top: 160,
+    left: "0%",
+    right: "0%",
+    margin: "0 auto",
+    textAlign: "center",
     fontFamily: "Roboto, sans-serif",
     fontWeight: 100,
-    // fontSize:
-    color: '#ffd454',
-    textTransform: 'uppercase',
+    color: "#ffd454",
+    textTransform: "uppercase",
     letterSpacing: 2
   }
-}
+};
 
 const Landing = props => {
   // const items = ['1','2','3','4','5']
 
- 
-  const { width } = props;
   return (
     <div style={styles.container}>
       <Responsive minWidth={767}>
-        <h1
-          style={Object.assign({}, styles.hero, { left: width / 8 })}
-          className="animated fadeInDown"
-        >
-          We Build{" "}
-          <span style={styles.subhero} className="animated fadeInRight">
-            business applications 
-          </span>
+        <h1 style={styles.hero} className="animated fadeInDown">
+          We Build
+        </h1>
+        
+      <h1 style={styles.subHero} className="animated fadeInDown">
+          Business Applications
         </h1>
         <hr
-          style={Object.assign({}, styles.hr, { left: width / 6.7 })}
+          style={styles.hr}
           className="animated slideInLeft"
         />
       </Responsive>
 
       <Responsive maxWidth={766}>
-        <h1
-          style={styles.mobileHero}
-          className="animated fadeInDown"
-        >
+        <h1 style={styles.mobileHero} className="animated fadeInDown">
           Cartesian
         </h1>
-        <h3 style={styles.subMobileHero}>Building Business Applications</h3>
+        <h3 style={styles.subMobileHero} className="animated fadeInUp ">
+          building business applications
+        </h3>
       </Responsive>
 
       <Particles

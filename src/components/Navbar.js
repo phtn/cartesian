@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import { NavLink } from "react-router-dom";
-import { Menu, Responsive } from "semantic-ui-react";
+import { Menu, Responsive, Sticky } from "semantic-ui-react";
 import Palace from '../assets/palace.svg'
 
 const styles = {
@@ -8,7 +8,8 @@ const styles = {
     backgroundColor: "#066b98",
     height: '100%',
     paddingLeft: 100,
-    paddingRight: 100
+    paddingRight: 100,
+    // position: 'fixed'
   },
   mobileContainer: {
     backgroundColor: "#066b98",
@@ -74,9 +75,9 @@ const Navbar = props => {
   ]
 
   return (
-    <>
+    <Sticky>
     <div style={styles.container}>
-
+      
       <Responsive as={Menu} minWidth={768} pointing secondary>
         <Menu.Item><img src={Palace} alt='logo'/></Menu.Item>
         <Menu.Item style={styles.items} position='left' active={false}>
@@ -122,7 +123,7 @@ const Navbar = props => {
         </Menu.Menu>
       </Responsive>
     </div>
-    </>
+    </Sticky>
   );
 };
 

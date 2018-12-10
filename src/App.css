@@ -12,3 +12,14 @@
     transform: rotate(360deg);
   }
 }
+
+.subOne {
+  animation-delay: .5
+}
+.subTwo {
+  animation-delay: 1
+}
+.subThree {
+  animation-delay: 1.5;
+  animation-duration: 2
+}
