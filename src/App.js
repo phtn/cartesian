@@ -12,6 +12,11 @@ const Homepage = Loadable({
   loading: () => <Loading />
 });
 
+const Apps = Loadable({
+  loader: () => import("./components/Apps"),
+  loading: () => <Loading />
+});
+
 const Blog = Loadable({
   loader: () => import("./components/Blog"),
   loading: () => <Loading />
@@ -24,6 +29,8 @@ const Company = Loadable({
 
 export default App => {
   const [brand] = useState('Cartesian')
+  const [pads, setPads] = useState(100)
+
   useEffect(()=> {
     document.title = brand
   }, [brand])
@@ -33,6 +40,13 @@ export default App => {
   useEffect(()=> {
     const handleWidth = () => setWidth(window.innerWidth)
     window.addEventListener('resize', handleWidth)
+
+    const handlePads = (pad) => setPads(pad)
+    if ( width < 767){
+      handlePads(25)
+    } else {
+      handlePads(300)
+    }
 
     return ()=> window.removeEventListener('resize', handleWidth)
   }, [width])
@@ -44,8 +58,10 @@ export default App => {
         <Switch>
           
           <Route exact path="/" render={() => <Homepage width={width}/>} />
+          <Route path="/Apps" component={()=> <Apps  pads={pads} />} />
           <Route path="/Blog" component={()=> <Blog  />} />
           <Route path="/OurCompany" render={() => <Company title='Our Company'/>} />
+
 
           {/* REDIRECT */}
           <Route component={() => <Homepage/>}/>

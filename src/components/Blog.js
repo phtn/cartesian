@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, NavLink, Switch, Redirect } from "react-router-dom";
-import { Card, Image } from 'semantic-ui-react'
+import { BrowserRouter as Router, Route, NavLink, Switch } from "react-router-dom";
+import { Card } from 'semantic-ui-react'
 import BlogContent from './BlogContent'
 import { Trail } from 'react-spring'
 
@@ -30,8 +30,7 @@ const blogs = [
 ];
 
 const styles = {
-  blogsContainer: {
-    // backgroundColor: '#eee',
+  container: {
     marginTop: 30
   },
  
@@ -47,7 +46,7 @@ const styles = {
 };
 
 const Blogs = props => (
-  <div style={Object.assign({}, styles.blogsContainer, { paddingLeft: props.pad, paddingRight: props.pad })}>
+  <div style={Object.assign({}, styles.container, { paddingLeft: props.pad, paddingRight: props.pad })}>
 
     <Card.Group itemsPerRow={1}>
       <Trail items={blogs} keys={item => item.id} from={{opacity: 0, transform: "translate3d(0,5px,0)" }} to={{ opacity: 1, transform: "translate3d(0,0px,0)" }}>

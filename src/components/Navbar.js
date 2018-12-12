@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import { NavLink } from "react-router-dom";
-import { Menu, Responsive, Sticky } from "semantic-ui-react";
+import { Menu, Responsive } from "semantic-ui-react";
 import Palace from "../assets/palace.svg";
 import { Trail } from "react-spring";
 
@@ -82,7 +82,7 @@ const Navbar = props => {
   ];
 
   return (
-    <Sticky>
+    <>
       <div style={styles.container}>
         <Responsive as={Menu} minWidth={768} pointing secondary>
           <Menu.Item>
@@ -172,7 +172,7 @@ const Navbar = props => {
           </Menu.Menu>
         </Responsive>
       </div>
-    </Sticky>
+    </>
   );
 };
 
